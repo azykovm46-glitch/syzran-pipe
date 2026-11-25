@@ -2,7 +2,6 @@ const intro = document.querySelector('.intro');
 const scene = document.querySelector('.scene');
 const parties = document.querySelector('.parties');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const mobile = matchMedia('(max-width: 760px)');
 let frame;
 
 function paintScene() {
@@ -15,11 +14,10 @@ function paintScene() {
   const travelled = startDistance - parties.getBoundingClientRect().top;
   const length = Math.max(1, travelled + bounds.bottom - viewport);
   const progress = Math.max(0, Math.min(1, travelled / length));
-  const edge = progress * 108;
+  const edge = progress * 105;
   scene.style.setProperty('--edge', edge.toFixed(2) + '%');
-  scene.style.setProperty('--cleared', (edge - 8).toFixed(2) + '%');
-  scene.style.setProperty('--camera', (-progress * scene.clientWidth * (mobile.matches ? 0.035 : 0.055)).toFixed(2) + 'px');
-  scene.style.setProperty('--scale', (1 + progress * 0.29).toFixed(3));
+  scene.style.setProperty('--cleared', (edge - 5).toFixed(2) + '%');
+  scene.style.setProperty('--scale', (1 + progress * 0.04).toFixed(3));
   scene.style.setProperty('--progress', (progress * 100).toFixed(2) + '%');
 }
 
