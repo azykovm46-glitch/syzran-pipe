@@ -58,12 +58,10 @@ const mobileLayout = matchMedia('(max-width: 760px)');
 if ('IntersectionObserver' in window) {
   const heroActions = document.querySelector('.hero-actions');
   const contactSection = document.querySelector('#contacts');
-  const form = document.querySelector('#quote-form');
   const visible = new Set();
 
   function updateMobileContact() {
-    const editing = form.contains(document.activeElement);
-    mobileContact.hidden = !mobileLayout.matches || visible.size > 0 || editing;
+    mobileContact.hidden = !mobileLayout.matches || visible.size > 0;
     document.body.classList.toggle('has-mobile-contact', !mobileContact.hidden);
     document.body.classList.toggle('at-contacts', visible.has(contactSection));
   }
@@ -78,38 +76,9 @@ if ('IntersectionObserver' in window) {
   visibility.observe(heroActions);
   visibility.observe(contactSection);
   mobileLayout.addEventListener('change', updateMobileContact);
-  form.addEventListener('focusin', updateMobileContact);
-  form.addEventListener('focusout', () => requestAnimationFrame(updateMobileContact));
 }
 
-for (const link of document.querySelectorAll('a[href="#contacts"], a[href="#quote"]')) {
+for (const link of document.querySelectorAll('a[href="#contacts"]')) {
   const title = document.querySelector(link.hash + '-title');
   link.addEventListener('click', () => requestAnimationFrame(() => title.focus({ preventScroll: true })));
 }
-
-const form = document.querySelector('#quote-form');
-const feedback = form.querySelector('.feedback');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(form);
-  const fields = [
-    ['Имя', 'name'],
-    ['Телефон или почта', 'contact'],
-    ['Диаметр труб, мм', 'diameter'],
-    ['Примерный метраж', 'length'],
-    ['Ссылка на фото труб', 'photos'],
-    ['Описание партии', 'coating'],
-    ['Комментарий', 'notes'],
-  ];
-  const lines = fields.map(([label, key]) => label + ': ' + (data.get(key).trim() || '—'));
-  const file = new Blob(['\ufeffЗаявка на расчёт партии\r\nМеханическое снятие изоляции со стальных труб в Сызрани\r\n\r\n', lines.join('\r\n')], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(file);
-  const download = document.createElement('a');
-  download.href = url;
-  download.download = 'заявка-на-расчёт.txt';
-  document.body.append(download);
-  download.click();
-  download.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  feedback.textContent = 'Заявка подготовлена к скачиванию.';
-});

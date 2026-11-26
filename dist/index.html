@@ -43,7 +43,7 @@
             <p class="hero-terms">Минимальный заказ <strong>10 000 ₽</strong></p>
             <div class="hero-actions">
               <a class="button" href="#contacts">Наши контакты</a>
-              <a class="secondary-link" href="#quote">Подготовить заявку</a>
+              <a class="secondary-link hero-phone" href="tel:+79276136866" aria-label="Позвонить по номеру +7 927 613-68-66">+7 (927) 613-68-66</a>
             </div>
           </div>
         </section>
@@ -129,38 +129,25 @@
         </div>
       </div>
     </section>
-    <section class="section quote" id="quote" aria-labelledby="quote-title">
-      <div class="wrap section-grid">
-        <div><p class="eyebrow"><span></span> Данные для оценки</p><h2 id="quote-title" tabindex="-1">Подготовить заявку</h2><p>Оставьте контакт и опишите партию. Диаметр, метраж и фото помогут точнее оценить работу.</p></div>
-        <form id="quote-form">
-          <div class="form-grid">
-            <label>Имя<input name="name" autocomplete="name"></label>
-            <label>Телефон или почта<input name="contact" autocomplete="on" required></label>
-            <label>Диаметр труб, мм<input name="diameter" inputmode="numeric"></label>
-            <label>Примерный метраж<input name="length" inputmode="decimal"></label>
-            <label class="full">Ссылка на фото труб<input type="url" name="photos"></label>
-            <label class="full">Описание партии<textarea name="coating" rows="3" required placeholder="Например, 8 труб в битумной изоляции"></textarea></label>
-            <label class="full">Комментарий<textarea name="notes" rows="3" placeholder="Требования к поверхности, условия доставки или адрес объекта"></textarea></label>
-          </div>
-          <button class="button" type="submit">Скачать заявку</button>
-          <p class="form-note">Форма сохраняет текст заявки на ваше устройство.</p>
-          <p class="feedback" role="status"></p>
-        </form>
-      </div>
-    </section>
     <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
       <div class="wrap contact-panel">
-        <div>
-          <h2 id="contacts-title" tabindex="-1">Контакты</h2>
-          <p>Напишите в сообщения на Авито. Приложите фото труб, укажите диаметр и метраж — рассчитаем стоимость в тот же день.</p>
-          <a class="button" href="https://www.avito.ru/syzran/predlozheniya_uslug/mehanicheskaya_ochistka_trub_ot_naruzhnoy_izolyatsii_8062293465">Открыть объявление на Авито <span aria-hidden="true">↗</span></a>
+        <div class="contact-intro">
+          <p class="eyebrow"><span></span> Контакты</p>
+          <h2 id="contacts-title" tabindex="-1">Обсудим вашу партию</h2>
+          <p>Для расчёта пришлите фото труб, диаметр, примерный метраж и город объекта.</p>
         </div>
-        <div>
-          <p id="contacts-note" class="contacts-note">Telegram и ВКонтакте — примеры ссылок для прототипа.</p>
-          <ul class="contact-list" aria-describedby="contacts-note">
-            <li><a href="https://telegram.org/" aria-label="Telegram, сайт сервиса, пример ссылки">Telegram <span aria-hidden="true">↗</span></a></li>
-            <li><a href="https://vk.com/" aria-label="ВКонтакте, сайт сервиса, пример ссылки">ВКонтакте <span aria-hidden="true">↗</span></a></li>
+        <div class="contact-channels">
+          <ul class="contact-list">
+            <li><a class="contact-primary" href="https://t.me/Dmitry_Yaz">
+              <span><span class="contact-label">Написать в Telegram</span><strong>@Dmitry_Yaz</strong></span>
+              <span class="contact-arrow" aria-hidden="true">↗</span>
+            </a></li>
+            <li><a href="tel:+79276136866">
+              <span><span class="contact-label">Позвонить</span><strong>+7 (927) 613-68-66</strong></span>
+              <span class="contact-arrow" aria-hidden="true">↗</span>
+            </a></li>
           </ul>
+          <a class="contact-avito" href="https://www.avito.ru/syzran/predlozheniya_uslug/mehanicheskaya_ochistka_trub_ot_naruzhnoy_izolyatsii_8062293465">Написать на Авито <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
